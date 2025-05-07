@@ -122,7 +122,7 @@ def arvore_com_links_e_imagens():
     
 
 def main():
-    st.title("Árvore Genealógica da Família Pohren")
+    st.title("Família Pohren")
     
     # Criar as abas
     tab1, tab2, tab3 = st.tabs(["Árvore Genealógica", "Imigração","Registros Históricos"])
