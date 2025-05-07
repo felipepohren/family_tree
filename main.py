@@ -126,9 +126,10 @@ def main():
     tab1, tab2, tab3 = st.tabs(["Árvore Genealógica", "Imigração","Registros Históricos"])
     
     with tab1:
+        st.markdown("[Arvore completa](https://www.familysearch.org/en/tree/pedigree/portrait/PSZH-YDG)")
         arvore_com_links_e_imagens()
         st.markdown("### Fontes:")        
-        st.markdown("1. [familysearch](https://www.familysearch.org/en/tree/pedigree/portrait/PSZH-YDG)")
+        st.markdown("1. [familysearch](https://www.familysearch.org)")
         st.markdown("2. [geni](https://www.geni.com/home)")
         st.markdown("3. [geneanet](https://pt.geneanet.org)")
 
