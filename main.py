@@ -48,27 +48,67 @@ def arvore_com_links_e_imagens():
                     fillcolor=cor)
     
     # Adicionar nó invisível para o casal
-    dot.node('casal_3', '', shape='point', style='invis')
-    dot.node('child_3', '', shape='point', style='invis')
+
+    dot.node('child_1', '', shape='point', style='invis')
+
     
     # Adicionar arestas (conexões)
     # Conexão entre gerações
-    dot.edge('individuo1', 'individuo2')  # Bisavô -> Avô
-    dot.edge('individuo2', 'individuo3_1')  # Avô -> Pai
+   
+   #heptavo
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('heptavo', 'heptavoh')  # Pai -> casal  
+    dot.edge('heptavo', 'hexavo')  # Avô -> Pai
+   #hexavo
+   
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('hexavo', 'hexavoh')  # Pai -> casal  
+    dot.edge('hexavo', 'pentavo')  # Avô -> Pai
+   #pentavo
+
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('pentavo', 'pentavoh')  # Pai -> casal  
+    dot.edge('pentavo', 'tetravo')  # Avô -> Pai
+   #tataravo
+
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('tetravo', 'tetravoh')  # Pai -> casal  
+    dot.edge('tetravo', 'trisavo')  # Avô -> Pai
+   #Trizavo 
+
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('trisavo', 'trisavoh')  # Pai -> casal  
+    dot.edge('trisavo', 'bizavo')  # Avô -> Pai
+   #bizavo
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('bizavo', 'bisavoh')  # Pai -> casal    
+    dot.edge('bizavo', 'avo')  # Avô -> Pai
+
     
+    with dot.subgraph() as s:
+        s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
+        s.edge('avo', 'avoh')  # Pai -> casal              
+    dot.edge('avo', 'pai')  # Avô -> Pai
     # Criar subgrafo para a conexão Pai-Mãe-Você
     with dot.subgraph() as s:
         s.attr(rank='same')  # Manter Pai e Mãe no mesmo nível
-        s.edge('individuo3_1', 'casal_3')  # Pai -> casal       
-        s.edge('casal_3', 'individuo3_2')  # casal -> Mãe
+        s.edge('pai', 'mae')  # Pai -> casal       
+        #s.edge('pai', 'casal_1')  # Pai -> casal       
+        #s.edge('casal_1', 'mae')  # casal -> Mãe
     
-    dot.edge('casal_3', 'child_3')
+    dot.edge('pai', 'child_1')
     
     # Conexões para os filhos chegando em cima dos nós
-    dot.edge('child_3', 'individuo4_1', constraint='true', headport='n')  # n = north (topo)
-    dot.edge('child_3', 'individuo4_2', constraint='true', headport='n')  # n = north (topo)
-    dot.edge('child_3', 'individuo4_3', constraint='true', headport='n')  # n = north (topo)
-    dot.edge('child_3', 'individuo4_4', constraint='true', headport='n')  # n = north (topo)
+    dot.edge('child_1', 'eu', constraint='true', headport='n')  # n = north (topo)
+    dot.edge('child_1', 'irmao_1', constraint='true', headport='n')  # n = north (topo)
+    dot.edge('child_1', 'irmao_2', constraint='true', headport='n')  # n = north (topo)
+    dot.edge('child_1', 'irmao_3', constraint='true', headport='n')  # n = north (topo)
     
     # Exibir o grafo no Streamlit
     st.graphviz_chart(dot)
@@ -77,12 +117,27 @@ def main():
     st.title("Árvore Genealógica da Família Pohren")
     
     # Criar as abas
-    tab1, tab2 = st.tabs(["Árvore Genealógica", "Visualizar Arquivos"])
+    tab1, tab2, tab3 = st.tabs(["Árvore Genealógica", "Imigração","Registros Históricos"])
     
     with tab1:
         arvore_com_links_e_imagens()
-    
+        st.markdown("### Fontes:")        
+        st.markdown("1. [familysearch](https://www.familysearch.org/en/tree/person/details/MD9L-4NH)")
+        st.markdown("2. [geni](https://www.geni.com/home)")
+        st.markdown("3. [geneanet](https://pt.geneanet.org)")
+
     with tab2:
+        st.markdown("""- O navio Olbers trouxe o maior número de imigrantes alemães numa viagem
+transatlântica para o Brasil.\n
+- O veleiro Olbers também foi o maior dos navios que até aquela data haviam
+efetuado o transporte de imigrantes ao Brasil.\n
+- O Olbers partiu do porto de Bremen sob o comando do Capitão Gerard Clausen (segundo Hunsche) no dia 03/10/1828
+(no dia 26/09/1828 de Bremenhaven, segundo Mathias Franzen) e chegou ao Rio de \
+Janeiro em 17/12/1828, em 75 dias.
+- Navio especialmente preparado para o transporte de pessoas, transportou 874 passageiros, entre eles muitas famílias \
+que se radicaram na Colônia Alemã de São Leopoldo no Rio Grande do Sul (Hunsche, Quadriênio).""")
+    
+    with tab3:
         # Listar arquivos na pasta "arquivos"
         arquivos = []
         if os.path.exists("arquivos"):
