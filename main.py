@@ -166,7 +166,13 @@ que se radicaram na Colônia Alemã de São Leopoldo no Rio Grande do Sul (Hunsc
                 file_path = os.path.join("arquivos", arquivo_selecionado)
                 
                 # Link de download com o nome do arquivo especificado
-                st.markdown(f'<a href="{file_path}" download="{arquivo_selecionado}">Baixar imagem</a>', unsafe_allow_html=True)
+                with open(file_path, "rb") as f:
+                    st.download_button(
+                        label="📥 Baixar imagem",
+                        data=f,
+                        file_name=arquivo_selecionado,
+                        mime="image/png"
+                    )
                 display_image(file_path)
                 
     
