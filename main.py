@@ -45,7 +45,8 @@ def arvore_com_links_e_imagens():
             dot.node(id_individuo, 
                     f"{dados['nome']}\n({dados['nascimento'].split('/')[-1]})",
                     tooltip=formatar_info_ancestral(dados),
-                    fillcolor=cor)
+                    fillcolor=cor,
+                    image = "flags/ger_bra.jpg")
     
     # Adicionar nó invisível para o casal
 
