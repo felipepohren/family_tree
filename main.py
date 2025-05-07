@@ -19,8 +19,11 @@ def display_image(file_path):
         return
     
     try:
-        image = Image.open(file_path)
-        st.image(image, use_container_width =True)
+        #image = Image.open(file_path)
+        #st.image(image, use_container_width =True)
+        
+        with Image.open(file_path) as img:
+           image_zoom(img, zoom_factor=5, mode="both",keep_resolution = True)  # zoom com mouse e scroll
     except Exception as e:
         st.error(f"Error displaying image: {str(e)}")
 
@@ -113,7 +116,8 @@ def arvore_com_links_e_imagens():
     dot.edge('child_1', 'irmao_3', constraint='true', headport='n')  # n = north (topo)
     
     # Exibir o grafo no Streamlit
-    st.graphviz_chart(dot)
+    st.graphviz_chart(dot,use_container_width = True)
+    
 
 def main():
     st.title("Árvore Genealógica da Família Pohren")
@@ -156,10 +160,10 @@ que se radicaram na Colônia Alemã de São Leopoldo no Rio Grande do Sul (Hunsc
             
             if arquivo_selecionado:
                 file_path = os.path.join("arquivos", arquivo_selecionado)
-                #display_image(file_path)
+                display_image(file_path)
                 
-                with Image.open(file_path) as img:
-                    image_zoom(img, mode="scroll",increment=0.5)
+               # with Image.open(file_path) as img:
+               #     image_zoom(img, mode="scroll",increment=0.5)
                 
 
 if __name__ == "__main__":
