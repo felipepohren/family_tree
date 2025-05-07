@@ -128,10 +128,13 @@ def main():
     with tab1:
         st.markdown("[Arvore completa](https://www.familysearch.org/en/tree/pedigree/portrait/PSZH-YDG)")
         arvore_com_links_e_imagens()
+        st.markdown("---")  # Linha horizontal
         st.markdown("### Fontes:")        
         st.markdown("1. [familysearch](https://www.familysearch.org)")
         st.markdown("2. [geni](https://www.geni.com/home)")
         st.markdown("3. [geneanet](https://pt.geneanet.org)")
+        st.markdown("---")  # Linha horizontal
+        st.write(" \n\n\n\nBy: Felipe Fischborn pohren\n\n\nversion 1.00")
 
     with tab2:
         st.markdown("""- O navio Olbers trouxe o maior número de imigrantes alemães numa viagem
