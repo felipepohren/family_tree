@@ -19,11 +19,11 @@ def display_image(file_path):
         return
     
     try:
-        #image = Image.open(file_path)
-        #st.image(image, use_container_width =True)
-        
         with Image.open(file_path) as img:
-           image_zoom(img, zoom_factor=5, mode="both",keep_resolution = True)  # zoom com mouse e scroll
+            st.image(img, use_container_width =True)
+        
+        #with Image.open(file_path) as img:
+        #   image_zoom(img, zoom_factor=5, mode="both",keep_resolution = True)  # zoom com mouse e scroll
     except Exception as e:
         st.error(f"Error displaying image: {str(e)}")
 
@@ -160,7 +160,10 @@ que se radicaram na Colônia Alemã de São Leopoldo no Rio Grande do Sul (Hunsc
             
             if arquivo_selecionado:
                 file_path = os.path.join("arquivos", arquivo_selecionado)
+                st.markdown(f'<a href="{file_path}" download>Baixar imagem</a>', unsafe_allow_html=True)
                 display_image(file_path)
+                
+    
                 
                # with Image.open(file_path) as img:
                #     image_zoom(img, mode="scroll",increment=0.5)
