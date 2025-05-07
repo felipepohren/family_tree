@@ -4,7 +4,7 @@ import os
 from PIL import Image
 import base64
 from io import BytesIO
-from pyvis.network import Network
+#from pyvis.network import Network
 import streamlit.components.v1 as components
 from ancestrais import ancestrais, formatar_info_ancestral
 
