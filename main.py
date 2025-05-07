@@ -9,6 +9,8 @@ from io import BytesIO
 import streamlit.components.v1 as components
 from ancestrais import ancestrais, formatar_info_ancestral
 
+version = '1.01'
+
 def get_image_base64(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
@@ -134,7 +136,8 @@ def main():
         st.markdown("2. [geni](https://www.geni.com/home)")
         st.markdown("3. [geneanet](https://pt.geneanet.org)")
         st.markdown("---")  # Linha horizontal
-        st.write(" \n\n\n\nBy: Felipe Fischborn pohren\n\n\nversion 1.00")
+        st.write("By: Felipe Fischborn pohren")
+        st.write(f"version {version}")
 
     with tab2:
         st.markdown("""- O navio Olbers trouxe o maior número de imigrantes alemães numa viagem
