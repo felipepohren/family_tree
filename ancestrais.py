@@ -154,8 +154,8 @@ Casou com Maria Catharina Klein em 18/01/1806",
             "Irmãos":"Irmãos: Carlos, Antônio, Pedro, Paulo, Tereza, Neca"
         },
         "mae": {
-            "nome": "Ariane Fischborn Pohren",
-            "nascimento": "18/05/1962",
+            "nome": "Ariani Fischborn Pohren",
+            "nascimento": "23/05/1962",
             "falecimento": None,  # None se ainda estiver viva
             "sexo": "F",
             "info": " ",
