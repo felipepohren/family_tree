@@ -1,5 +1,6 @@
 import streamlit as st
 import graphviz
+from streamlit_image_zoom import image_zoom
 import os
 from PIL import Image
 import base64
@@ -155,7 +156,11 @@ que se radicaram na Colônia Alemã de São Leopoldo no Rio Grande do Sul (Hunsc
             
             if arquivo_selecionado:
                 file_path = os.path.join("arquivos", arquivo_selecionado)
-                display_image(file_path)
+                #display_image(file_path)
+                
+                with Image.open(file_path) as img:
+                    image_zoom(img, mode="scroll",increment=0.5)
+                
 
 if __name__ == "__main__":
     main()
