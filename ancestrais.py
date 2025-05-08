@@ -8,7 +8,7 @@ ancestrais = {
             "nascimento": "1721",
             "falecimento": "30/09/1754",
             "sexo": "M",
-            "info": "Salmrohr, Wittlich, Rheinland, Deutschland",
+            "info": "Origem: Salmrohr, Wittlich, Rheinland, Deutschland",
             "Irmãos":"Irmãos: Barbara Pohren(1738-1814), Joannes Pohren(1784-1838)",
             "variações": "Variação de nome: Nikolaus"
         },
@@ -49,8 +49,10 @@ ancestrais = {
             "falecimento": "11/01/1863",
             "sexo": "M",
             "info": "veio em 03/03/1829 para São Leopoldo, Rio Grande do Sul, Brasil no navio Olbers.\n\
-há variações que indicam que nasceu em 04/01/1772.\n\
-Casou com Maria Catharina Klein em 18/01/1806",
+\nHá variações que indicam que nasceu em 04/01/1772.\n\
+\nCasou com Maria Catharina Klein em 18/01/1806.\n\
+\nOrigem: Losheim, Merzig, Trier, Rheinprovinz, Prússia.\n\
+\nWinz Pohren, consta como viúvo de Maria Catharina Klein, quando chegou na Colônia de São Leopoldo, Rio Grande do Sul, Brasil aos 03.03.1829. Pais de mais ou menos 4 filhos. Conteúdo no C333 do AHRS",
             "Irmãos":"Irmãos: Anna Maria Pohren(1776-1866), Margarethe Pohren(1779-1861), Peter Pohren(1781-1832), Suzanna pohren(1784-1838)",
             "variações": "Variações de nome: Winz, Vincent, Vicente, Vinzenz, Vincez"
         },
@@ -203,13 +205,13 @@ Casou com Maria Catharina Klein em 18/01/1806",
 # Função auxiliar para formatar as informações de um ancestral
 def formatar_info_ancestral(ancestral):
     info = f"Nome: {ancestral['nome']}\n"
-    info += f"Nascimento: {ancestral['nascimento']}\n"
+    info += f"\nNascimento: {ancestral['nascimento']}\n"
     if ancestral['falecimento']:
-        info += f"Falecimento: {ancestral['falecimento']}\n"
+        info += f"\nFalecimento: {ancestral['falecimento']}\n"
    # info += f"Sexo: {ancestral['sexo']}\n"
     if ancestral['Irmãos'] != " ":
-        info += f"\n{ancestral['Irmãos']}"
-    info += f"\n{ancestral['info']}"
+        info += f"\n{ancestral['Irmãos']}\n"
+    info += f"\n{ancestral['info']}\n"
     if ancestral.get('variações', None):
         info += f"\n{ancestral['variações']}"
     return info

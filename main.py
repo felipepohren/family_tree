@@ -1,6 +1,6 @@
 import streamlit as st
 import graphviz
-from streamlit_image_zoom import image_zoom
+#from streamlit_image_zoom import image_zoom
 import os
 from PIL import Image
 import base64
@@ -9,7 +9,7 @@ from io import BytesIO
 import streamlit.components.v1 as components
 from ancestrais import ancestrais, formatar_info_ancestral
 
-version = '1.02'
+version = '1.03'
 
 def get_image_base64(image_path):
     with open(image_path, "rb") as image_file:
@@ -130,6 +130,21 @@ def main():
     with tab1:
         st.markdown("[Arvore completa](https://www.familysearch.org/en/tree/pedigree/portrait/PSZH-YDG)")
         arvore_com_links_e_imagens()
+
+       # st.image("https://flagcdn.com/w320/de.png", caption="Alemanha")
+        pessoas = [p for p in ancestrais.values() for p in p.values()]
+        nomes = [p['nome'] for p in pessoas]
+
+        pessoa_selecionada = st.selectbox(
+                "Informações:",
+                nomes,
+                format_func=lambda x: x
+        )
+
+        
+        st.write(formatar_info_ancestral(pessoas[nomes.index(pessoa_selecionada)]))
+
+
         st.markdown("---")  # Linha horizontal
         st.markdown("### Fontes:")        
         st.markdown("1. [familysearch](https://www.familysearch.org)")
