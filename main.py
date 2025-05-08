@@ -9,7 +9,7 @@ from io import BytesIO
 import streamlit.components.v1 as components
 from ancestrais import ancestrais, formatar_info_ancestral
 
-version = '1.01'
+version = '1.02'
 
 def get_image_base64(image_path):
     with open(image_path, "rb") as image_file:
