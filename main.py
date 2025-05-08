@@ -136,7 +136,7 @@ def main():
         st.markdown("2. [geni](https://www.geni.com/home)")
         st.markdown("3. [geneanet](https://pt.geneanet.org)")
         st.markdown("---")  # Linha horizontal
-        st.write("By: Felipe Fischborn pohren")
+        st.write("By: Felipe Fischborn Pohren")
         st.write(f"version {version}")
 
     with tab2:
