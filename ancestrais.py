@@ -147,7 +147,7 @@ Casou com Maria Catharina Klein em 18/01/1806",
     8: {  # Terceira geração
         "pai": {
             "nome": "João Batista pohren",
-            "nascimento": "02/11/1962",
+            "nascimento": "02/11/1960",
             "falecimento": None,  # None se ainda estiver vivo
             "sexo": "M",
             "info": " ",
@@ -155,7 +155,7 @@ Casou com Maria Catharina Klein em 18/01/1806",
         },
         "mae": {
             "nome": "Ariani Fischborn Pohren",
-            "nascimento": "23/05/1962",
+            "nascimento": "23/05/1960",
             "falecimento": None,  # None se ainda estiver viva
             "sexo": "F",
             "info": " ",
